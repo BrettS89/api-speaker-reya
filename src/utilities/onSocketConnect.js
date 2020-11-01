@@ -1,4 +1,4 @@
-const Speaker = require('../models/speaker');
+const Speaker = require('../models/Speaker');
 const AppSub = require('../models/AppSub');
 const Session = require('../models/Session');
 const lookupTable = require('./lookupTable');
