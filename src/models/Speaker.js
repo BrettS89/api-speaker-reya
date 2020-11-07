@@ -4,7 +4,10 @@ const schema = new mongoose.Schema({
   user_id: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    index: true,
+  },
+  muted: {
+    type: Boolean,
+    default: false,
   },
   processed: {
     type: Boolean,
