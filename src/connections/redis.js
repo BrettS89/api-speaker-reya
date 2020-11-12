@@ -20,7 +20,6 @@ subscriber.on("subscribe", function(channel, count) {
 });
 
 subscriber.on('message', (channel, message) => {
-  console.log(channel, message);
   if (channel === 'mute') {
     muteHandler(message);
   } else {
