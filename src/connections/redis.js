@@ -20,7 +20,7 @@ subscriber.on("subscribe", function(channel, count) {
 });
 
 subscriber.on('message', (channel, message) => {
-  console.log(channel);
+  console.log(channel, message);
   if (channel === 'mute') {
     muteHandler(message);
   } else {
@@ -29,5 +29,6 @@ subscriber.on('message', (channel, message) => {
 });
 
 subscriber.subscribe('event')
+subscriber.subscribe('mute')
 
 module.exports = subscriber;
