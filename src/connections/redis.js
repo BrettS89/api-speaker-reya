@@ -1,5 +1,6 @@
 const redis = require('redis');
 const eventHandler = require('../utilities/eventHandler');
+const muteHandler = require('../utilities/muteHandler');
 
 // if (process.env.LOCAL !== 'true') {
 //   var subscriber = redis.createClient({
@@ -19,8 +20,12 @@ subscriber.on("subscribe", function(channel, count) {
 });
 
 subscriber.on('message', (channel, message) => {
-  console.log('inn');
-  eventHandler(message);
+  console.log(channel);
+  if (channel === 'mute') {
+    muteHandler(message);
+  } else {
+    eventHandler(message);
+  }
 });
 
 subscriber.subscribe('event')

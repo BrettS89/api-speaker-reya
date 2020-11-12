@@ -21,7 +21,7 @@ module.exports = async (socketId, speakerId) => {
 
     await session.save();
     
-    localSockets.active[speaker.user_id] = session;
+    localSockets.active[speaker.user_id] = { ...session.toObject(), muted: speaker.muted };
     localSockets.socketToIdMap[socketId] = speaker.user_id;
   } catch(e) {
     console.log('Socket connect error', e);
